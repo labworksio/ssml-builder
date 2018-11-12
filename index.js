@@ -296,7 +296,7 @@ Speech.prototype._escape = function (word) {
  */
 Speech.prototype._escapeWithSSML = function (word) {
     if (typeof(word) === "string") {
-        word = word.replace(/&/g, '&amp;');
+        word = word.replace(/&(?![A-Za-z0-9]*;)/g, '&amp;');
         return word;
     }
     if (typeof(word) === "number") {

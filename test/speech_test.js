@@ -178,6 +178,11 @@ describe('Speech', function () {
                     speech.sayWithSSML('r&b <w role="amazon:VB">read</w> more');
                     assert.equal(speech.ssml(), '<speak>r&amp;b <w role="amazon:VB">read</w> more</speak>');
                 });
+
+                it('should not escape ampersand which is in character reference', function () {
+                    speech.sayWithSSML(`r&b &apos; <w role="amazon:VB">read</w> more`);
+                    assert.equal(speech.ssml(), '<speak>r&amp;b &apos; <w role="amazon:VB">read</w> more</speak>');
+                });
             });
 
             describe('negative', function () {
