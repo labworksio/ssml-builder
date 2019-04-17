@@ -155,9 +155,9 @@ Speech.prototype.toObject = function () {
  */
 Speech.prototype.ssml = function (excludeSpeakTag) {
     if (excludeSpeakTag) {
-        return this._clean(this._elements.join(" "));
+        return this._clean(this._elements.join(" ")).trim();
     }
-    return "<speak>" + this._clean(this._elements.join(" ")) + "</speak>";
+    return "<speak>" + this._clean(this._elements.join(" ")).trim() + "</speak>";
 };
 
 /**
